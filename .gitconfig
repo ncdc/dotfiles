@@ -1,0 +1,65 @@
+[github]
+  user = ncdc
+[user]
+  name = Andy Goldstein
+  email = andy.goldstein@gmail.com
+  signingkey = FA22ADBD89CBE9E8
+[branch]
+  autosetupmerge = true
+  autosetuprebase = always
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[alias]
+  co = checkout
+  st = status
+  ci = commit -s -S
+  last = log -1 HEAD
+  unstage = reset HEAD --
+  difflast = diff HEAD^
+  lg = log --graph --pretty=oneline --abbrev-commit --decorate
+  cpx = cherry-pick -x
+  ff = merge --ff-only
+[push]
+  default = simple
+[core]
+#  autocrlf = input
+  editor = vim
+  pager = less -X
+[filter "media"]
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
+[rerere]
+  enabled = true
+[filter "hawser"]
+  clean = git hawser clean %f
+  smudge = git hawser smudge %f
+  required = true
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true
+  process = git-lfs filter-process
+[diff]
+  renameLimit = 2500
+#[pager]
+#  diff = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified|renamed): '
+#  show = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified|renamed): '
+[fetch]
+  prune = true
+[credential]
+  helper = osxkeychain
+[delta]
+  plus-style = "syntax #012800"
+  minus-style = "syntax #340001"
+  syntax-theme = Monokai Extended Bright
+  side-by-side = true
+[interactive]
+  diffFilter = delta --color-only
+[init]
+  defaultBranch = main
+[pager]
+  diff = delta
+  show = delta

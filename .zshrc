@@ -6,6 +6,7 @@ path=($HOME/go/bin $path)
 path=($HOME/bin $path)
 path=($HOME/.krew/bin $path)
 path=(/opt/homebrew/bin $path)
+path=(/Users/colin/Developer/PlaydateSDK/bin $path)
 export PATH
 
 # Set name of the theme to load --- if set to "random", it will
@@ -125,6 +126,7 @@ alias ag="ag --pager='less -R'"
 zstyle ':completion:*:*:make:*' tag-order 'targets'
 
 alias k=kubectl
+alias vim=nvim
 
 if [[ -f "/usr/local/opt/kube-ps1/share/kube-ps1.sh" ]]; then
   source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"

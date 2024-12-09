@@ -76,7 +76,7 @@ DISABLE_AUTO_TITLE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  ag
+  aws
   copybuffer
   dirhistory
   docker
@@ -87,10 +87,21 @@ plugins=(
   golang
   kubectl
   tmux
+  virtualenv
+  virtualenvwrapper
   vscode
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
+
+BREWPREFIX="$(brew --prefix)"
+
+if (( ! ${fpath[(I)]/$BREWPREFIX/zsh/site-functions} )); then
+  FPATH=$BREWPREFIX/share/zsh/site-functions:$FPATH
+fi
+if (( ! ${fpath[(I)]/$BREWPREFIX/zsh/zsh-completions} )); then
+  FPATH=$BREWPREFIX/share/zsh/zsh-completions:$FPATH
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -133,9 +144,5 @@ if [[ -f "/usr/local/opt/kube-ps1/share/kube-ps1.sh" ]]; then
   PS1='$(kube_ps1)'$PS1
 fi
 
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
-  autoload -Uz compinit
-  compinit
-fi
+alias tf=tofu

@@ -3,7 +3,7 @@
 [user]
   name = Andy Goldstein
   email = andy.goldstein@gmail.com
-  signingkey = FA22ADBD89CBE9E8
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINByLuOzvOhpIuzvExTUmZrc1JxuWFhOnMUguiIU1hub
 [branch]
   autosetupmerge = true
   autosetuprebase = always
@@ -63,3 +63,15 @@
 [pager]
   diff = delta
   show = delta
+
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+	allowedSignersFile = /Users/andy/.ssh/allowed_signers
+
+[commit]
+  gpgsign = true
+
